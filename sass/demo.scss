@@ -1,7 +1,62 @@
-.demo-card-square.mdl-card {
-  width: 320px;
-  height: 320px;
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,700,600);
+
+$titillium :'Titillium Web', sans-serif;
+$primary-color:#1a4e8e;
+
+$blue-gray-dark: #37474F;
+$blue-gray-light: #CFD8DC;
+$blue-gray-very-light:#ECEFF1;
+
+
+$body-background: $blue-gray-very-light;
+$card-header-background: $blue-gray-dark;
+$card-title-color: $blue-gray-light;
+
+
+body{background:$body-background; font-family:$titillium;font-weight:400;}
+
+.search-users {
+  background: #fff;
+  .header {
+    padding: 1em;
+    background-color: $card-header-background;
+    color: $card-title-color;
+  }
 }
-.demo-card-square > .mdl-card__title {
-  color: #000;
+
+.scroll {
+  max-height: 500px;
+  overflow: scroll;
+}
+
+
+// --- card ---
+.demo-card.mdl-card {
+  width: 100%;
+}
+.demo-card > .mdl-card__title {
+  padding: 1em;
+  background-color: $card-header-background;
+  // margin-bottom: 50px;
+  min-height: 128px;
+
+  &>.mdl-card__title-text {
+    color: $card-title-color;
+  }
+  img.avatar {
+    border-radius: 50%;
+    height: auto;
+    padding: 10px;
+    max-width: 128px;
+    transition: all 150ms ease-in-out;
+    margin-bottom: -50px;
+    margin-right: 25px;
+    &:hover {
+      border-radius: 10%;
+      padding: 10px;
+    }
+  } // end avatar
+}
+.demo-card > .mdl-card__supporting-text {
+  padding-top: 50px
 }

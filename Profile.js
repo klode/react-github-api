@@ -1,20 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const API = 'https://api.github.com/search/users';
+
 class Profile extends React.Component {
     constructor() {
         super();
+        this.state = {
+            name: null
+        };
     }
+
     render() {
+        console.log('Profile props', this.props.user);
+        let avatar_url = this.props.user.avatar_url;
+        var divStyle = {
+            backgroundImage: 'url(' + avatar_url + ')',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover'
+        };
+    //     background:
+    // url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+                // <div className="mdl-card__media">
+                //   <img src={avatar_url} height="140" alt="" />
+                // </div>
+
+                // <div className="mdl-card__title">
+                //     <h4 className="mdl-card__subtitle-text">
+                //         {this.props.user.location}
+                //     </h4>
+                // </div>
         return (
-            <div className="demo-card-square mdl-card mdl-shadow--2dp">
-                <div className="mdl-card__title mdl-card--expand">
-                    <h2 className="mdl-card__title-text">User Profile</h2>
+            <div className="demo-card mdl-card mdl-shadow--4dp">
+                <div className="mdl-card__title">
+                    <img className="avatar" src={avatar_url} />
+                    <h2 className="mdl-card__title-text">{this.props.user.name || this.props.user.login}</h2>
                 </div>
+
+
+
                 <div className="mdl-card__supporting-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aenan convallis.
+                    {this.props.user.location}
+                  <li>followers: {this.props.user.followers}</li>
+                  <li>repos: {this.props.user.public_repos}</li>
                 </div>
             </div>
         )

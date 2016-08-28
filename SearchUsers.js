@@ -5,9 +5,10 @@ const API = 'https://api.github.com/search/users';
 class SearchUsers extends React.Component {
     constructor() {
         super();
-        this.state = {users: []};
         this.handleForm = this.handleForm.bind(this);
         this.searchUsername = this.searchUsername.bind(this);
+
+        this.searchUsername('klode');
     }
 
     handleForm(e) {
@@ -23,26 +24,17 @@ class SearchUsers extends React.Component {
         fetch(url)
           .then((res) => res.json() )
           .then((data) => {
-            console.log(data);
-            this.setState({
-                users: data.items
-            });
-            // this.setState({
-            //   username: data.login,
-            //   name: data.name,
-            //   avatar: data.avatar_url,
-            //   location: data.location,
-            //   repos: data.public_repos,
-            //   followers: data.followers,
-            //   following: data.following,
-            //   homeUrl: data.html_url,
-            //   notFound: data.message
-            // });
+            console.log('in searchUsername', data);
+
+            this.props.onSearch(data.items);
+
           })
-          .catch((error) => console.log('Oops! . There Is A Problem') );
+          .catch((error) => console.log('Oops! . There Is A Problem', error) );
     }
+
     render() {
         return (
+            <div className="search-users">
             <form onSubmit={this.handleForm}>
                 <div className="mdl-textfield mdl-js-textfield">
                     <input className="mdl-textfield__input"
@@ -51,24 +43,32 @@ class SearchUsers extends React.Component {
                         placeholder="Search for a username..."/>
                     <label className="mdl-textfield__label">Type Username + Enter</label>
                 </div>
-                <Users users={this.state.users}/>
             </form>
+            <Users users={this.props.users} onUserClick={this.props.onUserClick} />
+            </div>
         )
     }
+}
+SearchUsers.defaultProps = {
+    users: [],
 }
 
 class Users extends React.Component {
 
-    constructor(props) {
+    constructor() {
         super();
     }
 
     render() {
-        console.log('Users:', this.props.users);
+        console.log('Users.render: props.users=', this.props.users);
+
+        let onUserClick = this.props.onUserClick;
 
         let users = this.props.users.map(function(item, index) {
             return (
-                <li className="mdl-list__item" key={index}>
+                <li className="mdl-list__item"
+                    onClick={() => onUserClick(item)}
+                    key={index}>
                     <span className="mdl-list__item-primary-content">
                       <img className="mdl-list__item-avatar" src={item.avatar_url} alt={item.login}/>
                       <span>{item.login}</span>
@@ -78,13 +78,13 @@ class Users extends React.Component {
         });
 
         return (
-            <div className="demo-list-action mdl-list">
+            <div className="demo-list-action mdl-list scroll">
                 {users}
             </div>
         )
     }
 }
 Users.defaultProps = {
-    users: []
+    users: [],
 }
 export default SearchUsers;
