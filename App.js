@@ -12,10 +12,10 @@ class App extends React.Component {
           username: null,
           user: {}
         };
-        this.update = this.update.bind(this);
+        this.updateUsers = this.updateUsers.bind(this);
         this.fetchProfile('klode');
     }
-    update(users) {
+    updateUsers(users) {
         console.log('in update', users);
         this.setState({
             users: users
@@ -43,17 +43,6 @@ class App extends React.Component {
             this.setState({
                 user: data
             });
-          // this.setState({
-          //   username: data.login,
-          //   name: data.name,
-          //   avatar: data.avatar_url,
-          //   location: data.location,
-          //   repos: data.public_repos,
-          //   followers: data.followers,
-          //   following: data.following,
-          //   homeUrl: data.html_url,
-          //   notFound: data.message
-          // });
         })
         .catch((error) => console.log('Oops! . There Is A Problem') );
     }
@@ -67,7 +56,7 @@ class App extends React.Component {
               <span className="mdl-layout-title">Find GitHub Users</span>
               <div className="mdl-layout-spacer"></div>
             </div>
-              <SearchUsers onSearch={this.update} onUserClick={this.onUserClick.bind(this)} users={this.state.users}/>
+              <SearchUsers onSearch={this.updateUsers} onUserClick={this.onUserClick.bind(this)} users={this.state.users}/>
             </div>
             <div className="mdl-cell mdl-cell--8-col"><Profile user={this.state.user}/></div>
           </div>
