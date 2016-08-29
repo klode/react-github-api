@@ -21,9 +21,9 @@ class Users extends React.Component {
         });
 
         return (
-            <div className="demo-list-action mdl-list scroll">
+            <ul className="mdl-list scroll">
                 {users}
-            </div>
+            </ul>
         )
     }
 }

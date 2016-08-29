@@ -18,21 +18,11 @@ class Profile extends React.Component {
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover'
         };
-    //     background:
-    // url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
-                // <div className="mdl-card__media">
-                //   <img src={avatar_url} height="140" alt="" />
-                // </div>
 
-                // <div className="mdl-card__title">
-                //     <h4 className="mdl-card__subtitle-text">
-                //         {this.props.user.location}
-                //     </h4>
-                // </div>
         return (
             <div className="demo-card mdl-card mdl-shadow--4dp">
                 <div className="mdl-card__title">
-                    <img className="avatar" src={avatar_url} />
+                    <a href={this.props.user.html_url} target="_blank"><img className="avatar" src={avatar_url} /></a>
                     <h2 className="mdl-card__title-text">{this.props.user.name || this.props.user.login}</h2>
                 </div>
 

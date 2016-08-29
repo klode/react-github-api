@@ -52,10 +52,10 @@ class App extends React.Component {
         return (
           <div className="mdl-grid">
             <div className="search-users mdl-cell mdl-cell--4-col mdl-shadow--2dp">
-            <div className="header">
-              <span className="mdl-layout-title">Find GitHub Users</span>
-              <div className="mdl-layout-spacer"></div>
-            </div>
+              <div className="header">
+                <span className="mdl-layout-title">Find GitHub Users</span>
+                <div className="mdl-layout-spacer"></div>
+              </div>
               <SearchUsers onSearch={this.updateUsers} onUserClick={this.onUserClick.bind(this)} users={this.state.users}/>
             </div>
             <div className="mdl-cell mdl-cell--8-col"><Profile user={this.state.user}/></div>
