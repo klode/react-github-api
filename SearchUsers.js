@@ -1,21 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SearchInput from './SearchInput';
 
 const API = 'https://api.github.com/search/users';
 class SearchUsers extends React.Component {
     constructor() {
         super();
-        this.handleForm = this.handleForm.bind(this);
         this.searchUsername = this.searchUsername.bind(this);
 
         this.searchUsername('klode');
-    }
-
-    handleForm(e) {
-        e.preventDefault();
-        let username = ReactDOM.findDOMNode(this.refs.username).value;
-        this.searchUsername(username);
-        ReactDOM.findDOMNode(this.refs.username).value = '';
     }
 
     searchUsername(username) {
@@ -35,15 +28,7 @@ class SearchUsers extends React.Component {
     render() {
         return (
             <div>
-              <form onSubmit={this.handleForm}>
-                <div className="mdl-textfield mdl-js-textfield">
-                  <input className="mdl-textfield__input"
-                      type="text"
-                      ref="username"
-                      placeholder="Search for a username..."/>
-                  <label className="mdl-textfield__label">Type Username + Enter</label>
-                </div>
-              </form>
+              <SearchInput onSubmit={this.searchUsername}></SearchInput>
               <Users users={this.props.users} onUserClick={this.props.onUserClick} />
             </div>
         )
@@ -54,7 +39,6 @@ SearchUsers.defaultProps = {
 }
 
 class Users extends React.Component {
-
     constructor() {
         super();
     }
