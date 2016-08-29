@@ -34,17 +34,17 @@ class SearchUsers extends React.Component {
 
     render() {
         return (
-            <div className="search-users">
-            <form onSubmit={this.handleForm}>
+            <div>
+              <form onSubmit={this.handleForm}>
                 <div className="mdl-textfield mdl-js-textfield">
-                    <input className="mdl-textfield__input"
-                        type="text"
-                        ref="username"
-                        placeholder="Search for a username..."/>
-                    <label className="mdl-textfield__label">Type Username + Enter</label>
+                  <input className="mdl-textfield__input"
+                      type="text"
+                      ref="username"
+                      placeholder="Search for a username..."/>
+                  <label className="mdl-textfield__label">Type Username + Enter</label>
                 </div>
-            </form>
-            <Users users={this.props.users} onUserClick={this.props.onUserClick} />
+              </form>
+              <Users users={this.props.users} onUserClick={this.props.onUserClick} />
             </div>
         )
     }
