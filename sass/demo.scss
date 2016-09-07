@@ -13,50 +13,20 @@ $card-header-background: $blue-gray-dark;
 $card-title-color: $blue-gray-light;
 
 
-body{background:$body-background; font-family:$titillium;font-weight:400;}
-
-.search-users {
-  background: #fff;
-  .header {
-    padding: 1em;
-    background-color: $card-header-background;
-    color: $card-title-color;
-  }
+body {
+    background: $body-background;
+    font-family: $titillium;
+    font-weight: 400;
+    #app {
+      max-width: 950px;
+      margin: auto;
+    }
 }
+
+@import "profile";
+@import "search-users";
 
 .scroll {
   max-height: 500px;
   overflow: auto;
-}
-
-
-// --- card ---
-.demo-card.mdl-card {
-  width: 100%;
-}
-.demo-card > .mdl-card__title {
-  padding: 1em;
-  background-color: $card-header-background;
-  // margin-bottom: 50px;
-  min-height: 128px;
-
-  &>.mdl-card__title-text {
-    color: $card-title-color;
-  }
-  img.avatar {
-    border-radius: 50%;
-    height: auto;
-    padding: 10px;
-    max-width: 128px;
-    transition: all 150ms ease-in-out;
-    margin-bottom: -50px;
-    margin-right: 25px;
-    &:hover {
-      border-radius: 10%;
-      padding: 10px;
-    }
-  } // end avatar
-}
-.demo-card > .mdl-card__supporting-text {
-  padding-top: 50px
 }

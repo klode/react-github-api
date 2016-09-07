@@ -13,8 +13,11 @@ export class SearchInput extends React.Component {
     ReactDOM.findDOMNode(this.refs.username).value = '';
   }
   render() {
+    var divStyle = {
+      paddingLeft: '15px'
+    };
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} style={divStyle}>
         <div className="mdl-textfield mdl-js-textfield">
           <input className="mdl-textfield__input"
               type="text"
