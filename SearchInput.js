@@ -14,7 +14,8 @@ export class SearchInput extends React.Component {
   }
   render() {
     var divStyle = {
-      paddingLeft: '15px'
+      paddingLeft: '15px',
+      paddingRight: '15px'
     };
     return (
       <form onSubmit={this.onSubmit} style={divStyle}>
