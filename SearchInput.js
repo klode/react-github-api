@@ -23,7 +23,7 @@ export class SearchInput extends React.Component {
           <input className="mdl-textfield__input"
               type="text"
               ref="username"
-              placeholder="Search for a username..."/>
+              placeholder="Search for a user ..."/>
           <label className="mdl-textfield__label">Type Username + Enter</label>
         </div>
       </form>

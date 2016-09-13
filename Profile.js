@@ -24,7 +24,7 @@ class Profile extends React.Component {
 
 
                 <div className="mdl-card__supporting-text">
-                  <div className="profile-location" >{this.props.user.location}</div>
+                  <div className="mdl-card__subtitle-text profile-location" >{this.props.user.location}</div>
                   <div className="profile-details">
                     <li><div>followers</div><div>{this.props.user.followers}</div></li>
                     <li><div>following</div><div>{this.props.user.following}</div></li>
