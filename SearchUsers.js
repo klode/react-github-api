@@ -2,25 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SearchInput from './SearchInput';
 import Users from './Users';
+import api from './githubApi';
 
-const API = 'https://api.github.com/search/users';
 class SearchUsers extends React.Component {
     constructor() {
         super();
         this.searchUsername = this.searchUsername.bind(this);
-
         this.searchUsername('klode');
     }
 
-    searchUsername(username) {
-        //let url = `${API}?q=${username}+repos:${'>10'}`;
-        let url = `${API}?q=${username}`;
-        fetch(url)
-          .then((res) => res.json() )
-          .then((data) => {
-            console.log('in searchUsername', data);
+    searchUsername(searchText) {
+      api.searchUsers(searchText)
+          .then((res) => {
+            let users = res.items;
+            console.log('SearchUsers.searchUsername()', users);
 
-            this.props.onSearch(data.items);
+            this.props.onSearch(users);
 
           })
           .catch((error) => console.log('Oops! . There Is A Problem', error) );

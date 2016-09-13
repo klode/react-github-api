@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SearchUsers from'./SearchUsers';
 import Profile from'./Profile';
+import api from './githubApi';
 
-const API = 'https://api.github.com/users';
 class App extends React.Component {
     constructor() {
         super();
@@ -13,6 +13,7 @@ class App extends React.Component {
           user: {}
         };
         this.updateUsers = this.updateUsers.bind(this);
+        this.onUserClick = this.onUserClick.bind(this);
         this.fetchProfile('klode');
     }
     updateUsers(users) {
@@ -35,11 +36,10 @@ class App extends React.Component {
       if(!username) {
           return;
       }
-      let url = `${API}/${username}`;
-      fetch(url)
-        .then((res) => res.json() )
+
+      api.getUser(username)
         .then((data) => {
-            console.log(data);
+            console.log('getUser', data);
             this.setState({
                 user: data
             });
@@ -47,7 +47,7 @@ class App extends React.Component {
         .catch((error) => console.log('Oops! . There Is A Problem') );
     }
     render(){
-        let username = this.state.users[0] ? this.state.users[0].login : null;
+        //let username = this.state.users && this.state.users[0] ? this.state.users[0].login : null;
         console.log('App.render');
         return (
           <div className="mdl-grid">
@@ -56,7 +56,10 @@ class App extends React.Component {
                 <span className="mdl-layout-title">Find GitHub Users</span>
                 <div className="mdl-layout-spacer"></div>
               </div>
-              <SearchUsers onSearch={this.updateUsers} onUserClick={this.onUserClick.bind(this)} users={this.state.users}/>
+              <SearchUsers
+                onSearch={this.updateUsers}
+                onUserClick={this.onUserClick}
+                users={this.state.users} />
             </div>
             <div className="mdl-cell mdl-cell--8-col"><Profile user={this.state.user}/></div>
           </div>
