@@ -3,3 +3,4 @@ node_modules
 User.js
 sass/_user.scss
 sass/main.scss
+*.sublime*
