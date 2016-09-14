@@ -14,7 +14,7 @@ class App extends React.Component {
         };
         this.updateUsers = this.updateUsers.bind(this);
         this.onUserClick = this.onUserClick.bind(this);
-        this.fetchProfile('klode');
+        //this.fetchProfile('klode');
     }
     updateUsers(users) {
         console.log('in update', users);
@@ -59,7 +59,8 @@ class App extends React.Component {
               <SearchUsers
                 onSearch={this.updateUsers}
                 onUserClick={this.onUserClick}
-                users={this.state.users} />
+                users={this.state.users}
+                activeUserId={this.state.user.id}/>
             </div>
             <div className="mdl-cell mdl-cell--8-col"><Profile user={this.state.user}/></div>
           </div>

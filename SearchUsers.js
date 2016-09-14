@@ -8,7 +8,7 @@ class SearchUsers extends React.Component {
     constructor() {
         super();
         this.searchUsername = this.searchUsername.bind(this);
-        this.searchUsername('klode');
+        //this.searchUsername('klode');
     }
 
     searchUsername(searchText) {
@@ -27,7 +27,7 @@ class SearchUsers extends React.Component {
         return (
             <div>
               <SearchInput onSubmit={this.searchUsername}></SearchInput>
-              <Users users={this.props.users} onUserClick={this.props.onUserClick} />
+              <Users activeUserId={this.props.activeUserId} users={this.props.users} onUserClick={this.props.onUserClick} />
             </div>
         )
     }

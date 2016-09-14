@@ -6,10 +6,12 @@ class Users extends React.Component {
         console.log('Users.render: props.users=', this.props.users);
 
         let onUserClick = this.props.onUserClick;
+        let activeUserId = this.props.activeUserId
 
         let users = this.props.users.map(function(item, index) {
+            let active = activeUserId === item.id ? 'active' : '';
             return (
-                <li className="mdl-list__item"
+                <li className={`mdl-list__item ${active}`}
                     onClick={() => onUserClick(item)}
                     key={index}>
                     <span className="mdl-list__item-primary-content">
@@ -29,6 +31,7 @@ class Users extends React.Component {
 }
 Users.defaultProps = {
     users: [],
-    onUserClick: (item) => console.log(item)
+    onUserClick: (item) => console.log(item),
+    activeUserId: ''
 }
 export default Users;

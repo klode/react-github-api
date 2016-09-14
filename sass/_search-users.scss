@@ -8,4 +8,8 @@
     background-color: $card-header-background;
     color: $card-title-color;
   }
+  .mdl-list__item.active {
+    background-color: $active-background;
+    transition: all 150ms ease-in-out;
+  }
 }
