@@ -62,7 +62,10 @@ class App extends React.Component {
                 users={this.state.users}
                 activeUserId={this.state.user.id}/>
             </div>
-            <div className="mdl-cell mdl-cell--8-col"><Profile user={this.state.user}/></div>
+
+            <div className="mdl-cell mdl-cell--8-col">
+              <Profile user={this.state.user}/>
+            </div>
           </div>
         )
     }
