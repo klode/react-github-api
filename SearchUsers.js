@@ -8,7 +8,8 @@ class SearchUsers extends React.Component {
     constructor() {
         super();
         this.searchUsername = this.searchUsername.bind(this);
-        //this.searchUsername('klode');
+        // init search with a default username
+        this.searchUsername('klode');
     }
 
     searchUsername(searchText) {

@@ -14,7 +14,8 @@ class App extends React.Component {
         };
         this.updateUsers = this.updateUsers.bind(this);
         this.onUserClick = this.onUserClick.bind(this);
-        //this.fetchProfile('klode');
+        // default profile
+        this.fetchProfile('klode');
     }
     updateUsers(users) {
         console.log('in update', users);
