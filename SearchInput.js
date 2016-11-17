@@ -6,6 +6,9 @@ export class SearchInput extends React.Component {
     super();
     this.onSubmit = this.onSubmit.bind(this);
   }
+  componentDidMount(){
+     ReactDOM.findDOMNode(this.refs.username).focus();
+  }
   onSubmit(e) {
     e.preventDefault();
     let username = ReactDOM.findDOMNode(this.refs.username).value;
@@ -23,7 +26,7 @@ export class SearchInput extends React.Component {
           <input className="mdl-textfield__input"
               type="text"
               ref="username"
-              placeholder="Search for a user ..."/>
+              placeholder="Enter a string to search for a user ..."/>
           <label className="mdl-textfield__label">Type Username + Enter</label>
         </div>
       </form>
