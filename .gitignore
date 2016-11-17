@@ -1,6 +1,3 @@
 node_modules
 .jshintrc
-User.js
-sass/_user.scss
-sass/main.scss
 *.sublime*
