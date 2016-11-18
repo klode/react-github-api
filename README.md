@@ -24,6 +24,8 @@ the profile of the selected user.
 
 * localhost:3000
 
+![Alt text](https://raw.githubusercontent.com/klode/react-github-api/master/screenshot.png)
+
 #### Links
 
 * React: https://facebook.github.io/react/
