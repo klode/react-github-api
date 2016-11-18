@@ -14,7 +14,7 @@ the profile of the selected user.
 
 ### Install npm package dependencies
 
-* npm instal
+* npm install
 
 ### Run the dev server
 
