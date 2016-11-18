@@ -28,10 +28,11 @@ the profile of the selected user.
 
 #### Links
 
-* React: https://facebook.github.io/react/
+* [React] (https://facebook.github.io/react/)
 
-* https://facebook.github.io/react/docs/reusable-components.html
+* [React reusable components] (https://facebook.github.io/react/docs/reusable-components.html)
 
-* GitHub API: https://developer.github.com/v3/search/
+* [GitHub API] (https://developer.github.com/v3/search/)
 
-* Redux: http://redux.js.org/docs/basics/UsageWithReact.html
+* [Redux] (http://redux.js.org/docs/basics/UsageWithReact.html)
+* [Material Design Lite] (https://getmdl.io/components/index.html)
